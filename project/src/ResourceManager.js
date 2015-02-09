@@ -3,6 +3,7 @@
  */
 
 var ResourceManager = {
-    MainMenuBg:[]
-
+    MainMenuBg:[],
+    layers:{},
+    walkKey:{}
 }

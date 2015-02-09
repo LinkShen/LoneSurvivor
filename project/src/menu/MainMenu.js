@@ -24,6 +24,14 @@ var MainMenuLayer = cc.Layer.extend({
         this.addChild(title);
 
         var startMenuItem = new cc.MenuItemFont("New Game", this.onStartGame, this);
+        startMenuItem.setColor(new cc.Color(0, 255, 255));
+        var loadMenuItem = new cc.MenuItemFont("Load", this.onLoadGame, this);
+        loadMenuItem.setColor(new cc.Color(0, 255, 255));
+        var optionMenuItem = new cc.MenuItemFont("Option", this.onOption, this);
+        optionMenuItem.setColor(new cc.Color(0, 255, 255));
+        var mainMenu = new cc.Menu(startMenuItem, loadMenuItem, optionMenuItem);
+        mainMenu.alignItemsVerticallyWithPadding(10);
+        this.addChild(mainMenu);
 
         this.scheduleUpdate();
     },
@@ -47,5 +55,37 @@ var MainMenuLayer = cc.Layer.extend({
                 this.backGroundSp2.active = false;
             }
         }
+    },
+
+    onStartGame:function() {
+        var scene = MainScene.getOrCreateMainScene();
+        cc.director.runScene(new cc.TransitionFade(2, scene));
     }
 });
+
+var MainMenuBackGround = cc.Sprite.extend({
+    active:true,
+    ctor:function() {
+        this._super(res.MainMenuBg_png);
+        this.init();
+    },
+    init:function() {
+        this.setAnchorPoint(new cc.Point(0, 0));
+        this.setPosition(new cc.Point(0, -300));
+    }
+
+});
+
+MainMenuBackGround.getOrCreateMainMenuBg = function(parent) {
+    for(var i = 0; i < ResourceManager.MainMenuBg.length; i++) {
+        var bg = ResourceManager.MainMenuBg[i];
+        if(bg.active == false) {
+            bg.active = true;
+            return bg;
+        }
+    }
+    var bg = new MainMenuBackGround();
+    parent.addChild(bg, -1000);
+    ResourceManager.MainMenuBg.push(bg);
+    return bg;
+}

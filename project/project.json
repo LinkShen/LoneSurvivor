@@ -13,8 +13,10 @@
     "jsList" : [
         "src/resource.js",
         "src/app.js",
-        "src/entity/BackGround/MainMenuBackGround.js",
         "src/ResourceManager.js",
-        "src/menu/MainMenu.js"
+        "src/menu/MainMenu.js",
+        "src/scene/MainScene.js",
+        "src/scene/ForestScene.js",
+        "src/entity/MainCharacter.js"
     ]
 }

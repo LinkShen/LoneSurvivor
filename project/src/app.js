@@ -71,10 +71,8 @@ var HelloWorldLayer = cc.Layer.extend({
 var HelloWorldScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        var layer = new HelloWorldLayer();
-        var layer2 = new MainMenuLayer();
+        var layer = new MainMenuLayer();
         this.addChild(layer);
-        this.addChild(layer2);
     }
 });
 
