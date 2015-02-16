@@ -17,6 +17,7 @@
         "src/menu/MainMenu.js",
         "src/scene/MainScene.js",
         "src/scene/ForestScene.js",
-        "src/entity/MainCharacter.js"
+        "src/entity/MainCharacter.js",
+        "src/entity/Tree.js"
     ]
 }
